@@ -1,2 +1,4 @@
 classes:
-    - ntp
+    - profiles::develop
+
+hhvm::package::package: hhvm-nightly

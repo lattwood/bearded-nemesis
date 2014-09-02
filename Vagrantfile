@@ -14,30 +14,26 @@ VIRTUAL_MACHINES = {
     networks:
     [
       {
-        ip: '172.20.0.5',
-        network: 'private1'
-      },
-      {
         ip: '172.21.0.5',
-        network: 'private2'
+        network: 'db-private'
       }
     ]
   },
-  postgres2:
+  web1:
   {
-    hostname:   "postgres2.#{DOMAIN}",
-    ram:        '512',
-    role:       'db',
+    hostname: "web1.#{DOMAIN}",
+    ram:      '512',
+    role:     'web',
     networks:
     [
       {
-        ip: '172.20.0.6',
-        network: 'private1'
+        ip: '172.22.0.2',
+        network: 'web-private'
       },
       {
-        ip: '172.21.0.6',
-        network: 'private2'
-      }
+        ip: '172.21.0.2',
+        network: 'db-private'
+      },
     ]
   }
 }
