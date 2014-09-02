@@ -1,0 +1,9 @@
+:backends: yaml
+:hierarchy:
+    - "%{::hostname}"
+    - "environment/%{::environment}"
+    - "role/%{::role}"
+    - common
+:logger: console
+:yaml:
+    :datadir: manifests/hieradata
