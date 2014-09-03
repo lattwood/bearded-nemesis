@@ -52,7 +52,7 @@ VIRTUAL_MACHINES = {
 }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = 'ubuntu/trusty64'
+  config.vm.box = 'puppetlabs/centos-6.5-64-puppet'
   config.ssh.forward_agent = true
 
   config.vm.provision :host_shell do |host_shell|

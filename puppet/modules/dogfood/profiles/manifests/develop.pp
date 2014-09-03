@@ -1,6 +1,6 @@
 
 class profiles::develop () {
-  package { 'vim':
+  package { 'vim-enhanced':
     ensure => present
   }
 }
