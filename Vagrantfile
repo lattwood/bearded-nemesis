@@ -33,7 +33,20 @@ VIRTUAL_MACHINES = {
       {
         ip: '172.21.0.2',
         network: 'db-private'
-      },
+      }
+    ]
+  },
+  elasticsearch1:
+  {
+    hostname: "elasticsearch1.#{DOMAIN}",
+    ram:      '512',
+    role:     'elasticsearch',
+    networks:
+    [
+      {
+        ip: '172.21.0.2',
+        network: 'db-private'
+      }
     ]
   }
 }
@@ -83,12 +96,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       vm_config.vm.provision 'puppet' do |puppet|
         puppet.working_directory = '/vagrant/puppet' # this is for hiera
+        puppet.hiera_config_path = 'puppet/manifests/hiera.yaml'
+
         puppet.module_path       = [
           'puppet/modules/vendor',
           'puppet/modules/dogfood'
         ]
         puppet.manifests_path    = 'puppet/manifests'
-        puppet.hiera_config_path = 'puppet/manifests/hiera.yaml'
 
         puppet.facter = {
           'vagrant'     => '1',
