@@ -44,7 +44,7 @@ VIRTUAL_MACHINES = {
     networks:
     [
       {
-        ip: '172.21.0.2',
+        ip: '172.21.0.10',
         network: 'db-private'
       }
     ]
