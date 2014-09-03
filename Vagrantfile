@@ -92,6 +92,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
       end
 
+      if Vagrant.has_plugin?("vagrant-cachier")
+        vm_config.cache.scope = :box
+        vm_config.cache.synced_folder_opts = {
+          type: :nfs,
+          mount_options: ['rw', 'vers=3', 'tcp', 'nolock' ]
+        }
+      end
+
       vm_config.vm.provision :hostmanager
 
       vm_config.vm.provision 'puppet' do |puppet|

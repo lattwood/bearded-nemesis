@@ -2,8 +2,12 @@
 class profiles::base () {
   class { '::ntp': }
 
-  package { 'chef':
-    ensure => purged
+  class { '::scl::python33':
+    before => Package['python33']
+  }
+
+  package { 'python33':
+    ensure => present
   }
 
 }
